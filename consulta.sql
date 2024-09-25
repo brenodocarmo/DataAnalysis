@@ -62,7 +62,7 @@ cte_percentual AS (
         chp.recencia,
         chp.valor_total,
         chp.rank,
-  			sum(chp.valor_total) over(order by chp.valor_total desc) as acumulado,
+  		sum(chp.valor_total) over(order by chp.valor_total desc) as acumulado,
         sum(chp.valor_total) over(order by chp.valor_total desc) AS total_acumulado,
         (chp.valor_total / sum(chp.valor_total) over() * 100) AS percentual
 
@@ -86,7 +86,7 @@ cte_curva_abc AS (
         ticket_medio,
         recencia,
         valor_total,
-  			acumulado,
+  		acumulado,
         total_acumulado,
         percentual,
         sum(percentual) over(order by valor_total desc) AS percentual_acumulado,
